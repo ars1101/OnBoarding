@@ -34,11 +34,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -49,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
         finishButtonStyle: FinishButtonStyle(
           backgroundColor: Color(0xFF0560FA),
         ),
-
         background: [
           Image.asset('assets/image1.png',width: MediaQuery.of(context).size.width,),
           Image.asset('assets/image2.png',width: MediaQuery.of(context).size.width,),
@@ -92,7 +86,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 1,
                     ),
                   ),
-                )
+                ),
+                SizedBox(height: 60,),
+
+
               ],
             ),
           ),
@@ -167,10 +164,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontWeight: FontWeight.w400,
                       height: 1,
                     ),
+
                   ),
                 ),
                 Center(child: GestureDetector(child: Container(height: 100, color: Colors.white,),onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => holder()));},))
-              ],
+              , ],
             ),
           ),
 
@@ -182,13 +180,8 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class holder extends StatelessWidget {
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: null);
   }
-
-
 }
