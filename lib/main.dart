@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,7 +6,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-
   final String title;
 
   @override
@@ -33,149 +30,290 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
+    PageController controller = PageController();
 
     return Scaffold(
-      body: OnBoardingSlider(
-        headerBackgroundColor: Colors.white,
-        finishButtonText: 'Sign in',
-        finishButtonStyle: FinishButtonStyle(
-          backgroundColor: Color(0xFF0560FA),
-        ),
-        background: [
-          Image.asset('assets/image1.png',width: MediaQuery.of(context).size.width,),
-          Image.asset('assets/image2.png',width: MediaQuery.of(context).size.width,),
-          Image.asset('assets/image3.png',width: MediaQuery.of(context).size.width,)
-        ],
-        totalPage: 3,
-        speed: 1.8,
-        pageBodies: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 480,
+        body: PageView(
+      controller: controller,
+      children: [
+        Column(
+          children: [
+            SizedBox(
+              height: 133,
+            ),
+            Image.asset(
+              'assets/image1.png',
+              width: MediaQuery.of(context).size.width,
+            ),
+            SizedBox(
+              height: 68,
+            ),
+            SizedBox(
+              width: 287,
+              child: Text(
+                'Quick Delivery At Your Doorstep',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color(0xFF0560FA),
+                    fontSize: 24,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w700,
+                    height: 1),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              width: 271,
+              child: Text(
+                'Enjoy quick pick-up and delivery to your destination',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFF3A3A3A),
+                  fontSize: 16,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w400,
+                  height: 1,
                 ),
+              ),
+            ),
+            Spacer(),
+            Row(
+              children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-
+                  width: 24,
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    controller.jumpToPage(2);
+                  },
                   child: Text(
-                    'Quick Delivery At Your Doorstep',
-                    textAlign: TextAlign.center,
+                    'Skip',
                     style: TextStyle(
                       color: Color(0xFF0560FA),
-                      fontSize: 24,
+                      fontSize: 14,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w700,
-                      height: 1,
-                    ))),
-                SizedBox(
-                  width: 221,
-                  child: Text(
-                    'Enjoy quick pick-up and delivery to your destination',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF3A3A3A),
-                      fontSize: 16,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                      height: 1,
+                      height: 0.05,
                     ),
                   ),
+                  style: OutlinedButton.styleFrom(
+                      foregroundColor: Color(0xFF0560FA),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 1, color: Color(0xFF0560FA)),
+                        borderRadius: BorderRadius.circular(4.69),
+                      )),
                 ),
-                SizedBox(height: 60,),
-
-
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 480,
-                ),
-                SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 50,
-                    child: Text(
-                        'Flexible Payment',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF0560FA),
-                          fontSize: 24,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w700,
-                          height: 1,
-                        ))),
-                SizedBox(
-                  height: 50,
-                  width: 221,
+                Spacer(),
+                OutlinedButton(
+                  onPressed: () {
+                    controller.jumpToPage(1);
+                  },
                   child: Text(
-                    'Different modes of payment either before and after delivery without stress',
-                    textAlign: TextAlign.center,
+                    'Next',
                     style: TextStyle(
-                      color: Color(0xFF3A3A3A),
-                      fontSize: 16,
+                      color: Colors.white,
+                      fontSize: 14,
                       fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                      height: 1,
+                      fontWeight: FontWeight.w700,
+                      height: 0.05,
                     ),
                   ),
+                  style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Color(0xFF0560FA),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 10.0, color: Color(0xFF0560FA)),
+                        borderRadius: BorderRadius.circular(4.69),
+                      )),
+                ),
+                SizedBox(
+                  width: 24,
                 )
               ],
             ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              children: <Widget>[
+            SizedBox(
+              height: 24,
+            )
+          ],
+        ),
+        Column(
+          children: [
+            SizedBox(
+              height: 133,
+            ),
+            Image.asset(
+              'assets/image2.png',
+              width: MediaQuery.of(context).size.width,
+            ),
+            SizedBox(
+              height: 68,
+            ),
+            SizedBox(
+              width: 287,
+              child: Text(
+                'Flexible Payment',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color(0xFF0560FA),
+                    fontSize: 24,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w700,
+                    height: 1),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              width: 271,
+              child: Text(
+                'Different modes of payment either before and after delivery without stress',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFF3A3A3A),
+                  fontSize: 16,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w400,
+                  height: 1,
+                ),
+              ),
+            ),
+            Spacer(),
+            Row(
+              children: [
                 SizedBox(
-                  height: 480,
+                  width: 24,
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    controller.jumpToPage(2);
+                  },
+                  child: Text(
+                    'Skip',
+                    style: TextStyle(
+                      color: Color(0xFF0560FA),
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w700,
+                      height: 0.05,
+                    ),
+                  ),
+                  style: OutlinedButton.styleFrom(
+                      foregroundColor: Color(0xFF0560FA),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 1, color: Color(0xFF0560FA)),
+                        borderRadius: BorderRadius.circular(4.69),
+                      )),
+                ),
+                Spacer(),
+                OutlinedButton(
+                  onPressed: () {
+                    controller.jumpToPage(2);
+                  },
+                  child: Text(
+                    'Next',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w700,
+                      height: 0.05,
+                    ),
+                  ),
+                  style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Color(0xFF0560FA),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 10.0, color: Color(0xFF0560FA)),
+                        borderRadius: BorderRadius.circular(4.69),
+                      )),
                 ),
                 SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 50,
-                    child: Text(
-                        'Real-time Tracking',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF0560FA),
-                          fontSize: 24,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w700,
-                          height: 1,
-                        ))),
-                SizedBox(
-                  height: 50,
-                  width: 221,
-                  child: Text(
-                    'Track your packages/items from the comfort of your home till final destination',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF3A3A3A),
-                      fontSize: 16,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                      height: 1,
-                    ),
-
+                  width: 24,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 24,
+            )
+          ],
+        ),
+        Column(
+          children: [
+            SizedBox(
+              height: 133,
+            ),
+            Image.asset(
+              'assets/image3.png',
+              width: MediaQuery.of(context).size.width,
+            ),
+            SizedBox(
+              height: 68,
+            ),
+            SizedBox(
+              width: 287,
+              child: Text(
+                'Real-time Tracking',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color(0xFF0560FA),
+                    fontSize: 24,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w700,
+                    height: 1),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              width: 271,
+              child: Text(
+                'Track your packages/items from the comfort of your home till final destination',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFF3A3A3A),
+                  fontSize: 16,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w400,
+                  height: 1,
+                ),
+              ),
+            ),
+            Spacer(),
+            SizedBox(width: 342,
+              height: 46,
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => holder()));
+                },
+                child: Text(
+                  'Sign in',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w700,
+                    height: 0.05,
                   ),
                 ),
-                Center(child: GestureDetector(child: Container(height: 100, color: Colors.white,),onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => holder()));},))
-              , ],
-            ),
-          ),
-
-        ],
-      ),
-    );
-
+                style: OutlinedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Color(0xFF0560FA),
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 10.0, color: Color(0xFF0560FA)),
+                      borderRadius: BorderRadius.circular(4.69),
+                    )),
+              ),
+            ), SizedBox(height: 24,)
+          ],
+        )
+      ],
+    ));
   }
 }
 
